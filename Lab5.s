@@ -59,15 +59,15 @@ getInput:
 
 cutMain:
     cmp r6, #6 @Is Board 1 > 6"
-    cmp r9, r6 @Compare the length of Board 1 with the amount to cut
+    cmpgt r9, r6 @Compare the length of Board 1 with the amount to cut
     blt cut1
 
     cmp r7, #6 @Is Board 2 > 6"
-    cmp r9, r7 @Compare the length of Board 2 with the amount to cut
+    cmpgt r9, r7 @Compare the length of Board 2 with the amount to cut
     blt cut2
 
     cmp r8, #6 @Is Board 1 > 6"
-    cmp r9, r8 @Compare the length of Board 3 with the amount to cut
+    cmpgt r9, r8 @Compare the length of Board 3 with the amount to cut
     blt cut3
 
     b endCut
