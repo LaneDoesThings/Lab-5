@@ -8,15 +8,15 @@
 main:
 
 @r4 = Number of boards cut so far
-ldr r4, #0
+mov r4, #0
 @r5 = Linear length cut so far
-ldr r5, #0
+mov r5, #0
 @r6 = Length of board 1
-ldr r6, #144
+mov r6, #144
 @r7 = length of board 2
-ldr r7, #144
+mov r7, #144
 @r8 = length of board 3
-ldr r8, #144
+mov r8, #144
 
 inventory:
 ldr r0, =strCutSoFar
