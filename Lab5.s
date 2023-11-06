@@ -21,7 +21,7 @@ mov r8, #144
 inventory:
 ldr r0, =strCutSoFar
 mov r1, r4 @Number of boards cut so far
-mov r2, r3 @How much was cut so far
+mov r2, r5 @How much was cut so far
 bl printf
 
 ldr r0, =strLengths
