@@ -54,7 +54,8 @@ getInput:
     cmp r1, #6
     blt outOfBounds
 
-    add r2, r6, r7, r8
+    add r2, r6, r7
+    add r2, r2, r8
     cmp r2, #18
     blt endCut
 
@@ -107,7 +108,8 @@ endCut:
     bl printf 
 
     ldr r0, =strLeftover
-    add r2, r6, r7, r8
+    add r2, r6, r7
+    add r2, r2, r8
     mov r1, r2
     bl printf
 
