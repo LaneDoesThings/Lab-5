@@ -34,7 +34,6 @@ prompt:
    bl  printf
 
 exit:
-
    mov r6, #0x01 
    svc 0    
 
