@@ -48,13 +48,14 @@ getInput:
     ldr r1, =intInput        
     ldr r1, [r1]             
 
+    mov r9, r1 @Store the amount to cut
+
     @determine if the input is out of bounds
-    cmp r1, #144
+    cmp r9, #144
     bgt outOfBounds
-    cmp r1, #6
+    cmp r9, #6
     blt outOfBounds
 
-    mov r9, r1 @Store the amount to cut
     b cutMain
 
 cutMain:
