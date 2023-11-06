@@ -116,6 +116,9 @@ strOutOfBounds: .asciz "The number must be between 6 and 144\n"
 .balign 4
 strInputError: .skip 100*4
 
+.balign 4
+strInputPattern: .asciz "%[^\n]"
+
 .global printf
 
 .global scanf
