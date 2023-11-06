@@ -34,7 +34,8 @@ inventory:
 
     bl printf
 
-    add r1, r6, r7
+    @Add the lengths of the boards and if they are less than 18 then each one must be less than 6
+    add r1, r6, r7 
     add r1, r1, r8
     cmp r1, #18
     blt endCut
@@ -76,9 +77,9 @@ cut1:
 
 cut2:
     cmp r7, #6 @Is Board 2 > 6"
-    blt cut3
+    blt cut3 @If not check board 3
     cmp r9, r7 @Compare the length of Board 2 with the amount to cut
-    bgt cut3
+    bgt cut3 @If there isn't enough to cut check board 3
 
     sub r7, r7, r9 @Subtract the length to cut off from the board
     add r4, r4, #1 @Increase the number of boards cut by 1
@@ -87,9 +88,9 @@ cut2:
 
 cut3:
     cmp r8, #6 @Is Board 1 > 6"
-    blt inventory
+    blt inventory @If not return back to the inventory
     cmp r9, r8 @Compare the length of Board 3 with the amount to cut
-    bgt inventory
+    bgt inventory @If there isn't enough to cut return back to the inventory
 
     sub r8, r8, r9 @Subtract the length to cut off from the board
     add r4, r4, #1 @Increase the number of boards cut by 1
@@ -97,10 +98,10 @@ cut3:
     b inventory
 
 endCut:
-    ldr r0, =strLeftover
+    ldr r0, =strLeftover @Shows the end message r1 already has the leftover from the less than 18 check
     bl printf
 
-    b exit
+    b exit @uneeded because of the call stack but for readability that this is the end of the program
 
 exit:
    mov r7, #0x01
