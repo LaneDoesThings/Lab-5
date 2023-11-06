@@ -21,6 +21,7 @@ main:
     mov r9, #0
 
 inventory:
+
     ldr r0, =strCutSoFar
     mov r1, r4 @Number of boards cut so far
     mov r2, r5 @How much was cut so far
@@ -32,6 +33,11 @@ inventory:
     mov r3, r8 @Length of Board 3
 
     bl printf
+
+    add r2, r6, r7
+    add r2, r2, r8
+    cmp r2, #18
+    blt endCut
 
 prompt:
     ldr r0, =strInputPrompt @prompt the user
@@ -53,11 +59,6 @@ getInput:
     bgt outOfBounds
     cmp r1, #6
     blt outOfBounds
-
-    add r2, r6, r7
-    add r2, r2, r8
-    cmp r2, #18
-    blt endCut
 
     mov r9, r1 @Store the amount to cut
     b cut1
@@ -96,20 +97,10 @@ cut3:
     b inventory
 
 endCut:
-    ldr r0, =strCutSoFar
-    mov r1, r4 @Number of boards cut so far
-    mov r2, r5 @How much was cut so far
-    bl printf
-
-    ldr r0, =strLengths
-    mov r1, r6 @Length of Board 1
-    mov r2, r7 @Length of Board 2
-    mov r3, r8 @Length of Board 3
-    bl printf 
-
-    ldr r0, =strLeftover
     add r2, r6, r7
     add r2, r2, r8
+    
+    ldr r0, =strLeftover
     mov r1, r2
     bl printf
 
