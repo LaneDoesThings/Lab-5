@@ -54,6 +54,10 @@ getInput:
     cmp r1, #6
     blt outOfBounds
 
+    add r2, r6, r7, r8
+    cmp r2, #18
+    blt endCut
+
     mov r9, r1 @Store the amount to cut
     b cut1
 
@@ -91,6 +95,22 @@ cut3:
     b inventory
 
 endCut:
+    ldr r0, =strCutSoFar
+    mov r1, r4 @Number of boards cut so far
+    mov r2, r5 @How much was cut so far
+    bl printf
+
+    ldr r0, =strLengths
+    mov r1, r6 @Length of Board 1
+    mov r2, r7 @Length of Board 2
+    mov r3, r8 @Length of Board 3
+    bl printf 
+
+    ldr r0, =strLeftover
+    add r2, r6, r7, r8
+    mov r1, r2
+    bl printf
+
     b exit
 
 exit:
@@ -123,13 +143,16 @@ strCutSoFar: .asciz "Cut-It-Up-Saw\nBoards cut so far: %d\nLinear length of boar
 strLengths: .asciz "Current Board Lengths:\nOne: %d\nTwo: %d\nThree: %d\n"
 
 .balign 4
+strOutOfBounds: .asciz "The number must be between 6 and 144\n"
+
+.align 4
+strLeftover: .asciz "Inventory levels have dropped below minimum levels and will now terminate.\nWaste is %d inches."
+
+.balign 4
 numInputPattern: .asciz "%d"
 
 .balign 4
 intInput: .word 0
-
-.balign 4
-strOutOfBounds: .asciz "The number must be between 6 and 144\n"
 
 .balign 4
 strInputError: .skip 100*4
