@@ -87,11 +87,11 @@ outOfBounds:
 
 readerror:
 
-   ldr r0, =strInputPattern
-   ldr r1, =strInputError  
-   bl scanf               
+    ldr r0, =strInputPattern
+    ldr r1, =strInputError  
+    bl scanf               
 
-   b prompt
+    b prompt
 
 .data
 
@@ -112,6 +112,9 @@ intInput: .word 0
 
 .balign 4
 strOutOfBounds: .asciz "The number must be between 6 and 144\n"
+
+.balign 4
+strInputError: .skip 100*4
 
 .global printf
 
