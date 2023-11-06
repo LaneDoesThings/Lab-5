@@ -74,14 +74,20 @@ cutMain:
 
 cut1:
     sub r6, r6, r9 @Subtract the length to cut off from the board
+    add r4, r4, #1 @Increase the number of boards cut by 1
+    add r5, r5, r9 @Add the length of the cut board
     b inventory
 
 cut2:
     sub r7, r7, r9 @Subtract the length to cut off from the board
+    add r4, r4, #1 @Increase the number of boards cut by 1
+    add r5, r5, r9 @Add the length of the cut board
     b inventory
 
 cut3:
     sub r8, r8, r9 @Subtract the length to cut off from the board
+    add r4, r4, #1 @Increase the number of boards cut by 1
+    add r5, r5, r9 @Add the length of the cut board
     b inventory
 
 endCut:
