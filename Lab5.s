@@ -34,9 +34,9 @@ inventory:
 
     bl printf
 
-    add r2, r6, r7
-    add r2, r2, r8
-    cmp r2, #18
+    add r1, r6, r7
+    add r1, r1, r8
+    cmp r1, #18
     blt endCut
 
 prompt:
@@ -97,11 +97,7 @@ cut3:
     b inventory
 
 endCut:
-    add r9, r6, r7
-    add r9, r9, r8
-
     ldr r0, =strLeftover
-    mov r1, r9
 test:
     bl printf
 
