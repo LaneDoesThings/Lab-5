@@ -62,18 +62,30 @@ cutMain:
     cmplt r6, #6 @Is Board 1 > 6"
     bgt cut1
 
+    cmp r9, r7 @Compare the length of Board 2 with the amount to cut
+    cmplt r7, #6 @Is Board 2 > 6"
+    bgt cut2
+
+    cmp r9, r8 @Compare the length of Board 3 with the amount to cut
+    cmplt r8, #6 @Is Board 1 > 6"
+    bgt cut3
+
+    b endCut
+
 cut1:
-    sub r6, r9, r6 @Subtract the length to cut off from the board
+    sub r6, r6, r9 @Subtract the length to cut off from the board
     b inventory
 
 cut2:
-
+    sub r7, r7, r9 @Subtract the length to cut off from the board
+    b inventory
 
 cut3:
-
+    sub r8, r8, r9 @Subtract the length to cut off from the board
+    b inventory
 
 endCut:
-
+    b exit
 
 exit:
    mov r6, #0x01 
@@ -83,7 +95,7 @@ outOfBounds:
     ldr r0, =strOutOfBounds
     bl printf
 
-    b getInput
+    b prompt
 
 readerror:
 
