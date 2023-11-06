@@ -99,7 +99,7 @@ cut3:
 endCut:
     add r2, r6, r7
     add r2, r2, r8
-    
+
     ldr r0, =strLeftover
     mov r1, r2
     bl printf
@@ -139,7 +139,7 @@ strLengths: .asciz "Current Board Lengths:\nOne: %d\nTwo: %d\nThree: %d\n"
 strOutOfBounds: .asciz "The number must be between 6 and 144\n"
 
 .align 4
-strLeftover: .asciz "Inventory levels have dropped below minimum levels and will now terminate.\nWaste is %d inches."
+strLeftover: .asciz "Inventory levels have dropped below minimum levels and will now terminate. Waste is %d inches."
 
 .balign 4
 numInputPattern: .asciz "%d"
