@@ -85,6 +85,14 @@ outOfBounds:
 
     b getInput
 
+readerror:
+
+   ldr r0, =strInputPattern
+   ldr r1, =strInputError  
+   bl scanf               
+
+   b prompt
+
 .data
 
 .balign 4
