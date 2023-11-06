@@ -98,10 +98,7 @@ cut3:
 
 endCut:
     ldr r0, =strLeftover
-test:
     bl printf
-
-    b exit
 
 exit:
    mov r7, #0x01
