@@ -102,6 +102,7 @@ endCut:
 
     ldr r0, =strLeftover
     mov r1, r9
+test:
     bl printf
 
     b exit
