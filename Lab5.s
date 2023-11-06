@@ -29,6 +29,8 @@ mov r1, r6 @Length of Board 1
 mov r2, r7 @Length of Board 2
 mov r3, r8 @Length of Board 3
 
+bl printf
+
 prompt:
    ldr r0, =strInputPrompt @prompt the user
    bl  printf
@@ -47,3 +49,7 @@ strCutSoFar: .asciz "Cut-It-Up-Saw\nBoards cut so far: %d\nLinear length of boar
 
 .balign 4
 strLengths: .asciz "Current Board Lengths:\nOne: %d\nTwo: %d\nThree: %d\n"
+
+.global printf
+
+.global scanf
