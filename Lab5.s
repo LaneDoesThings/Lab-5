@@ -49,7 +49,7 @@ getInput:
     ldr r1, [r1]             
 
     mov r9, r1 @Store the amount to cut
-
+test:
     @determine if the input is out of bounds
     cmp r9, #144
     bgt outOfBounds
