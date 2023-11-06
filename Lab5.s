@@ -138,8 +138,8 @@ strLengths: .asciz "Current Board Lengths:\nOne: %d\nTwo: %d\nThree: %d\n"
 .balign 4
 strOutOfBounds: .asciz "The number must be between 6 and 144\n"
 
-.align 4
-strLeftover: .asciz "Inventory levels have dropped below minimum levels and will now terminate.\n Waste is %d inches."
+.align 8
+strLeftover: .asciz "Inventory levels have dropped below minimum levels and will now terminate.\nWaste is %d inches."
 
 .balign 4
 numInputPattern: .asciz "%d"
