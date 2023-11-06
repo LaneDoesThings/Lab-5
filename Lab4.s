@@ -105,7 +105,7 @@ oddSum:
 
 myexit:
 
-   mov r6, #0x01 
+   mov r7, #0x01 
    svc 0         
 
 outOfBounds:
