@@ -25,7 +25,7 @@ Drink CokeZero = {.name="Coke Zero"};
 int main(void)
 {
 
-    printf_s("Welcome to the vending machine. All Drinks cost 55 cents.\n");
+    printf("Welcome to the vending machine. All Drinks cost 55 cents.\n");
 
     InputMoney();
 
@@ -42,7 +42,7 @@ void InputMoney()
         if(Coke.amountLeft <= 0 && Sprite.amountLeft <= 0 && DrPepper.amountLeft <= 0 && CokeZero.amountLeft <= 0) {Exit();}
         if(moneyCount >= 55) {SelectDrink(moneyCount);}
 
-        printf_s("Please enter money or the secret password (L).\n\nYou may enter money in the form of nickels (N), dimes (D), quarters (Q), or dollar bills (B), or you may exit the machine with a refund (X).\n\n");
+        printf("Please enter money or the secret password (L).\n\nYou may enter money in the form of nickels (N), dimes (D), quarters (Q), or dollar bills (B), or you may exit the machine with a refund (X).\n\n");
         std::cin >> inputOption;
         switch (inputOption)
         {
@@ -77,7 +77,7 @@ void SelectDrink(int& moneyCount)
 
     while(true)
     {
-        printf_s("You may select a drink of Coke (C), Sprite (S), Dr. Pepper (P), Coke Zero (Z), or you may exit the machine with a refund (X).\n\n");
+        printf("You may select a drink of Coke (C), Sprite (S), Dr. Pepper (P), Coke Zero (Z), or you may exit the machine with a refund (X).\n\n");
         std::cin >> inputOption;
 
         switch (inputOption)
@@ -109,10 +109,10 @@ void BuyDrink(Drink& drink, int& moneyCount)
 {
     if(drink.amountLeft <= 0) 
     {
-        printf_s("Sorry we are out of %s please choose another option\n", drink.name);
+        printf("Sorry we are out of %s please choose another option\n", drink.name);
         SelectDrink(moneyCount);
     }
-    printf_s("You have bought a %s and have recived %d cents as change.\n", drink.name, moneyCount-55);
+    printf("You have bought a %s and have recived %d cents as change.\n", drink.name, moneyCount-55);
     drink.amountLeft--;
     moneyCount = 0;
     InputMoney();
@@ -122,23 +122,23 @@ void AddMoney(const int amountToAdd, int& moneyCount)
 {
     moneyCount += amountToAdd;
 
-    printf_s("You entered %d cents and the total is now %d cents.\n\n\n", amountToAdd, moneyCount);
+    printf("You entered %d cents and the total is now %d cents.\n\n\n", amountToAdd, moneyCount);
 }
 
 void Refund(int& moneyCount)
 {
-    printf_s("You have recived %d cents back.\n\n\n", moneyCount);
+    printf("You have recived %d cents back.\n\n\n", moneyCount);
     moneyCount = 0;
 }
 
 void Admin()
 {
-    printf_s("There are %d Coke(s), %d Sprite(s), %d Dr. Pepper(s), and %d Coke Zero(s) left.\n", Coke.amountLeft, Sprite.amountLeft, DrPepper.amountLeft, CokeZero.amountLeft);
+    printf("There are %d Coke(s), %d Sprite(s), %d Dr. Pepper(s), and %d Coke Zero(s) left.\n", Coke.amountLeft, Sprite.amountLeft, DrPepper.amountLeft, CokeZero.amountLeft);
 }
 
 void Exit()
 {
-    printf_s("The machine is out of drinks and will shutdown now.\n");
+    printf("The machine is out of drinks and will shutdown now.\n");
     exit(0);
 }
 
@@ -146,5 +146,5 @@ void InvalidInput()
 {
     std::cin.clear();
     std::cin.ignore(INT_MAX, '\n');
-    printf_s("Please enter a valid input.\n");
+    printf("Please enter a valid input.\n");
 }
